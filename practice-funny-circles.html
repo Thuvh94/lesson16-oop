@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny circles</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    let Circle = function (x,y,radius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+    //Vẽ một hình tròn đơn giản với kích thước cố định
+    function createCircle(){
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        var circle= new Circle(500, 500, 80);
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+    createCircle();
+
+    //Vẽ hình tròn với bán kính ngẫu nhiên
+    function createRandomCircle(){
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        var radius =  Math.floor(Math.random() * 80);
+        var circle= new Circle(500, 500, radius);
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+    createRandomCircle();
+
+    //
+</script>
+</body>
+</html>
