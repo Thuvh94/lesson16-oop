@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+<script>
+    let Temperature = function (celcius) {
+        this.celcius = celcius;
+        this.celciusToFahrenheit = function (){
+            if (this.celcius >= -273)
+                return 1.8 * celcius + 32;
+            alert("Nhập số lớn hơn -273");
+        }
+        this.celciusToKenvin =function () {
+            if (this.celcius >= -273)
+                return celcius + 273.15;
+            alert("Nhập số lớn hơn -273")
+        }
+    }
+    let temperature = new Temperature(78);
+    let fahrenheit = temperature.celciusToFahrenheit();
+    let kenvin = temperature.celciusToKenvin();
+    document.write("Độ F = " + fahrenheit + "<br>"+ " Độ Kenvin = " + kenvin);
+
+
+</script>
+</body>
+</html>
