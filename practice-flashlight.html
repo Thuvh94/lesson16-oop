@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flashlight</title>
+</head>
+<body>
+<!--Ví dụ mô phỏng sự hoạt động của một chiếc đèn pin. -->
+<!--Trong ví dụ này ta có 2 lớp đối tượng cơ bản là Đèn (FlashLamp) và Pin (Battery).-->
+<!--Đối tượng pin mang trong mình thông tin về trạng thái năng lượng của nó,-->
+<!--đối tượng đèn sẽ sử dụng một đối tượng pin để cung cấp năng lượng cho hoạt động chiếu sáng, -->
+<!--khi đó ta nói có sự tương tác và trao đổi thông tin giữa hai đối tượng đèn và pin.-->
+<script>
+    // Bởi vì lớp FlashLamp có sử dụng lớp Battery, hay nói cách khác,
+    // lớp FlashLamp phụ thuộc vào lớp Battery, do đó chúng ta sẽ bắt đầu khai báo lớp Battery trước.
+    let Battery = function () {
+        this.setEnergy = function (energy) {
+            this.energy = energy;
+        };
+        this.getEnergy = function () {
+            return this.energy;
+        };
+        this.decreaseEnergy = function () {
+            if (this.energy < 0)
+                this.energy--;
+        }
+    };
+    
+    let Flashlight = function () {
+        this.setBattery = function (battery) {
+            this.battery = battery;
+        };
+        this.getBatteryInfo = function () {
+            return this.battery.getEnergy();
+        };
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+        this.light = function () {
+            if (this.status)
+                alert("Lighting");
+            else
+                alert("Not lighting");
+        }
+   };
+
+    // Tạo đối tượng battery từ lớp Battery và set giá trị cho flashlight với
+    let battery = new Battery ();
+    battery.setEnergy(10);
+
+    let flashlight = new Flashlight();
+    flashlight.setBattery(battery);
+
+    // Khi chưa bật đèn
+    document.write("Battery info:" + flashlight.getBatteryInfo() + "<br/>");
+    flashlight.light();
+
+    // Khi bật đèn
+    document.write("Turn on<br/>")
+    flashlight.turnOn();
+    flashlight.light();
+    document.write("Battery info:" + flashlight.getBatteryInfo() + "<br/>");
+
+    // Tắt đèn đi
+    document.write("Turn off<br/>")
+    flashlight.turnOff();
+    flashlight.light();
+</script>
+</body>
+</html>
