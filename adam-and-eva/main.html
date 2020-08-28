@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adam and eva</title>
+
+</head>
+<body>
+<!--Adam và Eva lấy một quả táo và ăn, mỗi người ăn một miếng táo cho đến khi hết!-->
+<!--Mỗi lần ăn, chỉ ăn một miếng táo (1đv).-->
+<!--Khi ăn táo, khối lượng của người đó sẽ tăng lên một đv và khối lượng quả táo sẽ giảm đi một đv.-->
+<!--Chỉ ăn táo khi khối lượng của quả táo lớn hơn 0.-->
+<!--+ Biết kiểm tra khối lượng của quả táo.-->
+<script src="apple.js"></script>
+<script src="human.js"></script>
+<script>
+    let adam = new Human ("Adam",true,700);
+    let eva = new Human ("Eva",false,450);
+    let apple = new Apple ();
+    adam.talk("Hi Eva, you are so beautiful");
+    eva.talk("Hello, you are so handsome. Let's eat this apple!");
+    console.log(apple.isEmpty());
+    document.write(adam.getAppleWeight(apple));
+    for (let i = 0; i < 5; i++) {
+        adam.eatApple(apple);
+        eva.eatApple(apple);
+    }
+
+
+
+</script>
+</body>
+</html>
